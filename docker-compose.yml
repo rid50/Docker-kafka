@@ -91,21 +91,21 @@ services:
      /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
      "
  
-  app:
-    container_name: spring_boot_app  
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      init-kafka:
-      #kafka:
-        #condition: service_healthy
-        condition: service_started      
-    #environment:
-     # SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-     # SPRING_PROFILES_ACTIVE: prod
-    networks:
-      - kafka-net
+#  app:
+#   container_name: spring_boot_app  
+#   build: .
+#   ports:
+#     - "8080:8080"
+#   depends_on:
+#     init-kafka:
+#     #kafka:
+#       #condition: service_healthy
+#       condition: service_started      
+#    #environment:
+#     # SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+#     # SPRING_PROFILES_ACTIVE: prod
+#    networks:
+#      - kafka-net
 
 volumes:
   kafka_data:
