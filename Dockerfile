@@ -25,7 +25,7 @@ RUN apk update && \
 #COPY --chmod=755 ./daemon.json /usr/src/app/daemon.json
 
 
-COPY ./*.jar app.jar
+#COPY ./*.jar app.jar
 
 #COPY create-topics.sh /tmp/create-topics.sh
 #RUN chmod +x /tmp/create-topics.sh
