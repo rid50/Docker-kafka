@@ -31,8 +31,8 @@ services:
       #KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
       #KAFKA_LISTENERS: PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
       #KAFKA_LISTENERS: PLAINTEXT://kafka:9092,CONTROLLER://localhost:9093
-      KAFKA_LISTENERS: PLAINTEXT://kafka:9092,CONTROLLER://localhost:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       #KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT://localhost:19092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
@@ -67,29 +67,29 @@ services:
     networks:
       - kafka-net
   
-  init-kafka:
-    #image: apache/kafka:4.1.1  
-    image: apache/kafka:latest
-    #image: apache/kafka-native:4.1.1    
-    networks:
-      - kafka-net    
-    depends_on:
-      kafka:
-        #condition: service_healthy
-        condition: service_started      
-    entrypoint: [ '/bin/sh', '-c' ]
-    command: |
-     "
-     # Wait for Kafka to be ready
-     /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
- 
-     #echo '======================== Creating kafka topics'
-     /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic yaruss-input --replication-factor 3 --partitions 1
-     /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic yaruss-output --replication-factor 3 --partitions 1
- 
-     echo '======================== Successfully created the following topics:'
-     /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
-     "
+#  init-kafka:
+#   #image: apache/kafka:4.1.1  
+#   image: apache/kafka:latest
+#   #image: apache/kafka-native:4.1.1    
+#   networks:
+#     - kafka-net    
+#   depends_on:
+#     kafka:
+#       #condition: service_healthy
+#       condition: service_started      
+#   entrypoint: [ '/bin/sh', '-c' ]
+#   command: |
+#    "
+#    # Wait for Kafka to be ready
+#    /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
+#
+#    #echo '======================== Creating kafka topics'
+#    /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic yaruss-input --replication-factor 3 --partitions 1
+#    /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic yaruss-output --replication-factor 3 --partitions 1
+#
+#    echo '======================== Successfully created the following topics:'
+#    /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list
+#    "
  
 #  app:
 #   container_name: spring_boot_app  
