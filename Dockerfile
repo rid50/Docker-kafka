@@ -41,5 +41,5 @@ RUN apk update && \
 #ENTRYPOINT ["java","-jar","app.jar"]
 
 #ENTRYPOINT ["/bin/cat"]
-CMD ["tail", "-f", "/dev/null"]
-#CMD ["sleep", "infinity"]
+#CMD ["tail", "-f", "/dev/null"]
+CMD ["sleep", "infinity"]
