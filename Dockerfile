@@ -7,7 +7,7 @@ FROM alpine:latest
 #FROM alpine/java:21-jre
 #FROM ubuntu:20.04
 
-EXPOSE 4000/tcp
+#EXPOSE 4000/tcp
 
 USER root
 
