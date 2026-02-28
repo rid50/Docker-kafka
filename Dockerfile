@@ -35,7 +35,9 @@ RUN apk update && \
 # COPY . /tmp
 # RUN ls -R /tmp
 # RUN chmod +x /usr/local/bin/create-topics.sh
-ENTRYPOINT ["java","-jar","app.jar"]
-# ENTRYPOINT ["/bin/cat"]
+
+#ENTRYPOINT ["java","-jar","app.jar"]
+
+ENTRYPOINT ["/bin/cat"]
 #CMD ["tail", "-f", "/dev/null"]
 #CMD ["sleep", "infinity"]
