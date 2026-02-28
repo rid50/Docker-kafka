@@ -50,15 +50,14 @@ services:
       #KAFKA_CREATE_TOPICS: "yaruss-input:1:1,yaruss-output:1:1" #Wurstmeister Image
       #KAFKA_CLUSTER_ID: $(opt/kafka/bin/kafka-storage.sh random-uuid)
       #KAFKA_CLUSTER_ID: "5L6g3nShT-eMCtK--X86sw"
-#    healthcheck:
-#     test: ["CMD", "/opt/kafka/bin/kafka-broker-api-versions.sh", "--bootstrap-server", "kafka:9092"]
-#     #test: ["CMD", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server=kafka:9092", "--list"]
-#     #test: nc -z kafka 9092 || exit -1      
-#     interval: 10s
-#     timeout: 5s
-#     retries: 5
-#     start_period: 30s        
-
+    healthcheck:
+      test: ["CMD", "/opt/kafka/bin/kafka-broker-api-versions.sh", "--bootstrap-server", "kafka:9092"]
+      #test: ["CMD", "/opt/kafka/bin/kafka-topics.sh", "--bootstrap-server=kafka:9092", "--list"]
+      #test: nc -z kafka 9092 || exit -1      
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s        
     # Use 'command' to generate a cluster UUID and format storage on first run
 #    command: 
 #      - "sh"
@@ -76,8 +75,8 @@ services:
       - kafka-net    
     depends_on:
       kafka:
-        #condition: service_healthy
-        condition: service_started      
+        condition: service_healthy
+        #condition: service_started      
     entrypoint: [ '/bin/sh', '-c' ]
     command: |
      "
