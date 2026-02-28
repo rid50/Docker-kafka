@@ -1,8 +1,9 @@
 #FROM eclipse-temurin:21-jre-alpine
 
 #FROM eclipse-temurin:21-jre-alpine-3.23
-FROM eclipse-temurin:17-jre-alpine
+#FROM eclipse-temurin:17-jre-alpine
 #FROM alpine:latest AS build-stage
+FROM alpine:latest
 #FROM alpine/java:21-jre
 #FROM ubuntu:20.04
 
