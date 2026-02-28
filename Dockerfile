@@ -6,6 +6,8 @@ FROM eclipse-temurin:17-jre-alpine
 #FROM alpine/java:21-jre
 #FROM ubuntu:20.04
 
+EXPOSE 9092/tcp
+
 USER root
 
 WORKDIR /opt/app
