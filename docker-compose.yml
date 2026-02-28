@@ -8,6 +8,7 @@ services:
     #image: wurstmeister/kafka  
     #image: bitnami/kafka:latest
     image: apache/kafka:latest
+    #image: confluentinc/cp-kafka-rest
     #image: apache/kafka:4.1.1
     #image: apache/kafka-native:4.1.1
     #build:
@@ -16,25 +17,35 @@ services:
 #      context: .
 #      dockerfile_inline: |
 #        FROM alpine:latest
-#        RUN apk add --no-cache nano    
+#        RUN apk add --no-cache nano
+    hostname: broker  
     container_name: broker
 #    extra_hosts:
 #      - "host.docker.internal:host-gateway"    
     ports:
       - "9092:9092"
+      #- "8082:8082"
     volumes:
       - kafka_data:/var/lib/kafka/data
     environment:
       # KRaft settings
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: controller,broker
+      
+      KAFKA_REST_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092
+      KAFKA_REST_LISTENERS: http://0.0.0.0:8082
+      KAFKA_REST_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      
       #KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
       #KAFKA_LISTENERS: PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
       #KAFKA_LISTENERS: PLAINTEXT://kafka:9092,CONTROLLER://localhost:9093
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:4000
+      #KAFKA_ADVERTISED_LISTENERS: INTERNAL://instance1-kafka1:19092, EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092, DOCKER://host.docker.internal:29092
+      #KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:SASL_PLAINTEXT, EXTERNAL:SASL_PLAINTEXT, DOCKER:SASL_PLAINTEXT
+      
       #KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT://localhost:19092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
