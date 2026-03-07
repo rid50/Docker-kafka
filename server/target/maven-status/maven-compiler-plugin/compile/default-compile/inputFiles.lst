@@ -1,0 +1,13 @@
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\config\KafkaStreamsConfig.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\config\KafkaTopicConfig.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\config\WebSocketConfig.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\consumer\MessageConsumer.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\datasource\Image.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\datasource\ImageDTO.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\datasource\ImageMapper.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\datasource\ImageRepository.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\datasource\ImageService.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\KafkaController.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\producer\MessageProducer.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\service\GreetingService.java
+C:\projects\Kafka\Streams\org.yaruss.kafka.spring\server\src\main\java\org\yaruss\kafka\spring\SpringKafkaStreamaRealTimeApp.java

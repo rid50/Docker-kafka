@@ -1,0 +1,13 @@
+org\yaruss\kafka\spring\datasource\ImageDTO.class
+org\yaruss\kafka\spring\config\KafkaTopicConfig.class
+org\yaruss\kafka\spring\consumer\MessageConsumer.class
+org\yaruss\kafka\spring\datasource\ImageRepository.class
+org\yaruss\kafka\spring\producer\MessageProducer.class
+org\yaruss\kafka\spring\datasource\ImageMapper.class
+org\yaruss\kafka\spring\KafkaController.class
+org\yaruss\kafka\spring\config\WebSocketConfig.class
+org\yaruss\kafka\spring\SpringKafkaStreamaRealTimeApp.class
+org\yaruss\kafka\spring\config\KafkaStreamsConfig.class
+org\yaruss\kafka\spring\datasource\Image$ImageBuilder.class
+org\yaruss\kafka\spring\datasource\Image.class
+org\yaruss\kafka\spring\service\GreetingService.class
